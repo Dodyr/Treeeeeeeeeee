@@ -11,3 +11,12 @@ struct NODE
 };
 
 typedef NODE* Tree;
+
+class Search_tree
+{
+private:
+	Tree root;
+public:
+	Search_tree(std::ifstream&);
+	Tree gettree();
+};

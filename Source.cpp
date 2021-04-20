@@ -57,8 +57,13 @@ Tree copy_t(Tree t, int n, int level)
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	Tree t = createt(6, 0);
-	printt(t, 0);
-	Tree tr = copy_t(t, 3, 0);
-	printt(tr, 0);
+	std::ifstream fin("tre.txt");
+	Search_tree t(fin);
+	fin.close();
+	printt(t.gettree(), 0);
+	if (0)
+	{
+		Tree tr = copy_t(t.gettree(), 3, 0);
+		printt(tr, 0);
+	}
 }
