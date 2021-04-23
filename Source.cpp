@@ -23,17 +23,15 @@ Tree createt(int n, int level)
 	return t;
 }
 
-void printt(Tree t, int space)
+void Print_tree(Tree t, int level)
 {
 	if (t != NULL)
 	{
-		printt(t->left, space + 1);
-		for (int i = 1; i <= space; i++)
-		{
-			std::cout << ' ';
-		}
+		Print_tree(t->right, level + 1);
+		for (int i = 1; i <= level; i++)
+			std::cout << "  ";
 		std::cout << t->info << std::endl;
-		printt(t->right, space + 1);
+		Print_tree(t->left, level + 1);
 	}
 }
 
@@ -60,10 +58,10 @@ int main()
 	std::ifstream fin("tre.txt");
 	Search_tree t(fin);
 	fin.close();
-	printt(t.gettree(), 0);
+	Print_tree(t.gettree(), 0);
 	if (0)
 	{
 		Tree tr = copy_t(t.gettree(), 3, 0);
-		printt(tr, 0);
+		Print_tree(tr, 0);
 	}
 }
