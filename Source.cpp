@@ -38,7 +38,7 @@ void Print_tree(Tree t, int level)
 Tree copy_t(Tree t, int n, int level)
 {
 	Tree copyt;
-	if (level == n + 1)
+	if ((level == n + 1)||!t)
 	{
 		copyt = NULL;
 	}
@@ -55,13 +55,21 @@ Tree copy_t(Tree t, int n, int level)
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	std::ifstream fin("tre.txt");
-	Search_tree t(fin);
-	fin.close();
-	Print_tree(t.gettree(), 0);
-	if (0)
+	if (1)
 	{
-		Tree tr = copy_t(t.gettree(), 3, 0);
+		std::ifstream fin("tre.txt");
+		Search_tree t(fin);
+		fin.close();
+		Print_tree(t.gettree(), 0);
+		Tree tr = copy_t(t.gettree(), 5, 0);
 		Print_tree(tr, 0);
 	}
+	else
+	{
+		Tree t = createt(3, 0);
+		Print_tree(t, 0);
+		Tree tr = copy_t(t, 2, 0);
+		Print_tree(tr, 0);
+	}
+	return 0;
 }
